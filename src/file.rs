@@ -373,6 +373,11 @@ impl<'n> NtfsFile<'n> {
         self.flags().contains(NtfsFileFlags::IS_DIRECTORY)
     }
 
+    /// Returns whether this NTFS File Record is in use.
+    pub fn is_in_use(&self) -> bool {
+        self.flags().contains(NtfsFileFlags::IN_USE)
+    }
+
     /// Convenience function to get a $FILE_NAME attribute of this file (see [`NtfsFileName`]).
     ///
     /// A file may have multiple $FILE_NAME attributes for each [`NtfsFileNamespace`].
